@@ -1,3 +1,8 @@
-<app-server></app-server>
-<app-server></app-server>
-<app-server></app-server>
+<p>You are in {{ servername }}, The Server ID is {{ serverid }} and {{ getServerOwner() }}</p>
+<button class = "btn btn-primary" [disabled] = '!allowNewServer' (click)="onRandomServer()">Random Server</button>
+<input type = "text" class = "form-control" (input)="onInputServer($event)" >
+<input type = "number" class = "form-control" [(ngModel)] = "serverid" >
+<input type = "text" class = "form-control" [(ngModel)]="newservername">
+<button (click)="onCreateNewServer()">Create New Server</button>
+<p>{{createserverstatus}} name is {{newservername}}</p>
+
