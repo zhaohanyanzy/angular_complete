@@ -6,3 +6,14 @@
 <button (click)="onCreateNewServer()">Create New Server</button>
 <p>{{createserverstatus}} name is {{newservername}}</p>
 
+
+<p *ngIf ="oddserver; else evenserver">Show me if server id is odd</p>
+<ng-template #evenserver> <p>Show me if server id is Even</p></ng-template>
+
+<p *ngIf ="canshow; else noshow" [ngStyle]="{backgroundColor: getColor()}">You found me</p>
+<ng-template #noshow > <p [ngStyle]="{backgroundColor: getColor()}"> I am hiding, try find me.</p></ng-template>
+<button (click)="onShowme()">Show!</button>
+<button (click)="onHide()">Hide!</button>
+
+<button (click)="onAddRandomServer()">Add Random Server</button>
+<p *ngFor = "let server of servers"> {{server}} </p>
